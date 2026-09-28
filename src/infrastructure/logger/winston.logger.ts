@@ -5,7 +5,10 @@ import { LogMetaData } from "./logger.type"
 export class WinstonLogger implements ILogger {
     private readonly logger : winston.Logger
 
-    constructor(){
+   constructor(logger: winston.Logger){
+    this.logger = logger
+   }
+    /* constructor(){
         this.logger = winston.createLogger({
             level: "info",
             format: winston.format.combine(
@@ -16,7 +19,7 @@ export class WinstonLogger implements ILogger {
                 new winston.transports.Console()
             ]
         })
-    }
+    }*/
 
     info(message: string, metadata?: LogMetaData): void {
         this.logger.info(message,metadata)

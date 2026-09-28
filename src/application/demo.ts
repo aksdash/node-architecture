@@ -1,6 +1,21 @@
 import { WinstonLogger } from "../infrastructure/logger/winston.logger";
+import winston from "winston";
 
-const logger = new WinstonLogger();
+
+const winstonInstance = winston.createLogger({
+    level: "info",
+
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json()
+    ),
+
+    transports: [
+        new winston.transports.Console()
+    ]
+});
+
+const logger = new WinstonLogger(winstonInstance);
 
 logger.info("application.started")
 
