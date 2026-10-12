@@ -1,3 +1,4 @@
+import { errorSerializationFormat } from "../infrastructure/logger/error-serializer.format";
 import { WinstonLogger } from "../infrastructure/logger/winston.logger";
 import winston from "winston";
 
@@ -6,6 +7,7 @@ const winstonInstance = winston.createLogger({
     level: "info",
 
     format: winston.format.combine(
+        errorSerializationFormat(),
         winston.format.timestamp(),
         winston.format.json()
     ),
