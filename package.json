@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "tsx src/application/demo.ts"
+    "dev": "tsx src/application/server.ts"
   },
   "repository": {
     "type": "git",
@@ -19,10 +19,14 @@
   "homepage": "https://github.com/aksdash/node-architecture#readme",
   "description": "",
   "dependencies": {
+    "express": "^5.3.0",
+    "morgan": "^1.12.1",
     "winston": "^3.19.0"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/jest": "^30.0.0",
+    "@types/morgan": "^1.9.10",
     "jest": "^29.7.0",
     "ts-jest": "^29.4.13",
     "tsx": "^4.23.15"
