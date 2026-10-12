@@ -2,6 +2,7 @@ import morgan, { token } from "morgan";
 import { request, response, type RequestHandler } from "express";
 import { ILogger } from "./logger.interface";
 import { LogMetaData } from "./logger.type";
+import { getRequestID } from "./request-context";
 
 export function createMorganMiddleware(logger: ILogger): RequestHandler {
     return morgan(
@@ -9,6 +10,7 @@ export function createMorganMiddleware(logger: ILogger): RequestHandler {
             const path = new URL(request.url ?? "/", "http://localhost").pathname
 
             const acessLogs: LogMetaData = {
+                request: getRequestID(),
                 method: tokens.method,
                 path,
                 statusCode: Number(tokens.status(request,response)),

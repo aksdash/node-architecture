@@ -35,3 +35,30 @@ src/
 Morgan -> Writes access events -> Morgan adapter -> calls logger.info() ->  Winston logger -> Winston -> Json -> console
 
 
+#Next phase 
+
+Centeralized error handling + Request Ids
+
+WE are building
+
+Incoming HTTP REQUEST -> Request ID middleware -> Assingn unique ID to the request 
+
+Express Route -> Returns data or forwards an error
+
+Centeral Error Middleware -> Logs the error and returns a safe HTTP Response
+
+Morgan access Log : Records the final http status and response time
+
+Add Request context using Async local storage using Async Local Storage
+
+Basicall adding a request context as a middleware and add requestId header in express as request header
+
+Step1 .. Create request context in logging infra
+expose a function requestContextMiddleware which returns a function which appends requestid in the response header and pass response to next cycle
+
+Add request iD to winston logs 
+So Add request context format which can added winston format logger.
+
+So in info add the request ID in the winston.format method
+
+
