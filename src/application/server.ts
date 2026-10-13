@@ -3,12 +3,13 @@ import { WinstonLogger } from "../infrastructure/logger/winston.logger";
 import { createApp } from "./app";
 import { errorSerializationFormat } from "../infrastructure/logger/error-serializer.format";
 import { requestContextFormat } from "../infrastructure/logger/request-context.format";
-
+import { traceContextFormat } from "../infrastructure/logger/trace-context.format";
 const winstonInstance =  winston.createLogger({
     level: 'info',
     format: winston.format.combine(
         errorSerializationFormat(),
         requestContextFormat(),
+        traceContextFormat(),
         winston.format.timestamp(),
         winston.format.json(),
     ),

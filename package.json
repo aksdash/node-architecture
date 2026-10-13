@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "tsx src/application/server.ts"
+    "dev": "tsx --import ./src/infrastructure/instrumentation/instrumentation.ts src/application/server.ts"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,12 @@
   "homepage": "https://github.com/aksdash/node-architecture#readme",
   "description": "",
   "dependencies": {
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/instrumentation-express": "^0.71.0",
+    "@opentelemetry/instrumentation-http": "^0.223.0",
+    "@opentelemetry/sdk-metrics": "^2.12.0",
+    "@opentelemetry/sdk-node": "^0.223.0",
+    "@opentelemetry/sdk-trace-node": "^2.12.0",
     "express": "^5.3.0",
     "morgan": "^1.12.1",
     "winston": "^3.19.0"
